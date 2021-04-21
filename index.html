@@ -25,8 +25,10 @@
       const error = document.getElementById("error");
 
       function evaluarPalindromo() {
+        
         const palabra = document.getElementById("ingreso").value;
         const pRespuesta = document.getElementById("respuesta");
+
         if (!(palabra === "")) {
           const array = palabra.split("").reverse().join("").toUpperCase();
           const palabraMayus = palabra.toUpperCase();
