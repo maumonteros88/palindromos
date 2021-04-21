@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="contenedor">
+      <h1>Palindromos</h1>
+      <label for="titulo" class="label">Es palindromo?</label>
+      <input
+        class="ingreso"
+        id="ingreso"
+        type="text"
+        placeholder="Ingrese palabra para probar"
+      />
+      <button class="boton" onclick="evaluarPalindromo()">Evaluar</button>
+      <p id="error" class="error"></p>
+      <p id="respuesta">Esperando respuesta......</p>
+    </div>
+    <script>
+      const error = document.getElementById("error");
+
+      function evaluarPalindromo() {
+        const palabra = document.getElementById("ingreso").value;
+        const pRespuesta = document.getElementById("respuesta");
+        if (!(palabra === "")) {
+          const array = palabra.split("").reverse().join("").toUpperCase();
+          const palabraMayus = palabra.toUpperCase();
+
+          if (palabraMayus === array) {
+            error.textContent = "";
+            pRespuesta.textContent = `La palabra: ${palabraMayus} es capicua: ${array}`;
+          } else {
+            error.textContent = "";
+            pRespuesta.textContent = `La palabra: ${palabraMayus} NO es capicua: ${array}`;
+          }
+        } else {
+          error.textContent = "Debe ingresar una palabra";
+        }
+      }
+    </script>
+  </body>
+</html>
